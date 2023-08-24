@@ -1,0 +1,64 @@
+.filter{
+    padding: 0.75rem 0rem;
+    max-width: 940px;
+    margin: 0 auto;
+    &, ul{
+        display: flex;
+        justify-content: space-between;
+    }
+    button{
+        background-color: var(--background);
+        border: none;
+        color: var(--text);
+        font-size: 1.5rem;
+        display: flex;
+        padding:  0 0rem;
+
+        align-items: center;
+    }
+    ul{
+        flex: 1;
+        overflow: auto;
+        align-items: center;
+        gap: 0.25rem;
+
+        li{
+            list-style: none;
+            display: inline-block;
+            white-space: nowrap;
+            &.active{
+                // color: var(--primary-dark);
+                color: #000;
+                font-weight: 500;
+                border-top: 1px solid var(--primary);
+                border-bottom: 1px solid var(--primary);
+                padding: 0.25rem 0;
+                box-sizing: content-box;
+
+                a{
+                    background-color: var(--primary);
+                }
+            }
+            a{
+                display: block;
+                padding: 0.1rem 0.5rem;
+                text-transform: uppercase;
+                cursor: pointer;
+                text-decoration: none;
+            }
+            &:hover{
+                // color: var(--primary-dark);
+                color: #000;
+                font-weight: 500;
+                // border-top: 1px solid var(--primary);
+                // border-bottom: 1px solid var(--primary);
+                padding: 0.25rem 0;
+                box-sizing: content-box;
+                
+                a{
+                    background-color: var(--primary);
+                }
+            }
+        }
+    }
+}
