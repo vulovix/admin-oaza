@@ -12,6 +12,14 @@ import store from "./core/redux/utils/createStore";
 import AboutPage from "./pages/About";
 import HomePage from "./pages/Home";
 import { ThemeProvider } from "./providers/Theme";
+import BlankLayout from "./components/Layout/Blank";
+import { LoginPage } from "./pages/Account/Login";
+import { RegisterPage } from "./pages/Account/Register";
+import LogoutPage from "./pages/Account/Logout";
+import AuthProvider from "./providers/Auth";
+import PublicRoute from "./components/Routes/PublicRoute";
+import ProtectedRoute from "./components/Routes/ProtectedRoute copy";
+import OasisPage from "./pages/Oasis";
 
 const container = document.getElementById("root");
 
@@ -24,6 +32,46 @@ const router = createBrowserRouter([
       <DefaultLayout>
         <HomePage />
       </DefaultLayout>
+    ),
+  },
+  {
+    path: "/oasis",
+    element: (
+      <ProtectedRoute>
+        <DefaultLayout>
+          <OasisPage />
+        </DefaultLayout>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/sign-in",
+    element: (
+      <PublicRoute>
+        <BlankLayout>
+          <LoginPage />
+        </BlankLayout>
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/sign-up",
+    element: (
+      <PublicRoute>
+        <BlankLayout>
+          <RegisterPage />
+        </BlankLayout>
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/sign-out",
+    element: (
+      <ProtectedRoute>
+        <BlankLayout>
+          <LogoutPage />
+        </BlankLayout>
+      </ProtectedRoute>
     ),
   },
   {
@@ -41,7 +89,9 @@ root.render(
     <PersistGate loading={<></>} persistor={store.persistor}>
       <IntlProvider locale={defaultLocale} defaultLocale={defaultLocale} messages={translationMessages}>
         <ThemeProvider>
-          <RouterProvider router={router} />
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
         </ThemeProvider>
       </IntlProvider>
     </PersistGate>

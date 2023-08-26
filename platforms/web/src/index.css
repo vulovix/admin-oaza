@@ -40,8 +40,8 @@
   --success: #DEF6F6;
   --accent: #FFDEEF;
   --accent-dark: #F9B1D6;
-  --border: #ececec;
-  --border-dark: #ddd;
+  --border: #131313;
+  --border-dark: #0f0f0f;
 
   .invert {
     filter: invert(1);

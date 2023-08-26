@@ -1,0 +1,20 @@
+.loading-overlay{
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    // height: 85vh; //if with logo
+    height: 100vh;
+    overflow: hidden;
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      animation: fadeIn 1s;
+      // -webkit-animation: fadeIn 5s;
+      // -moz-animation: fadeIn 5s;
+      // -o-animation: fadeIn 5s;
+      // -ms-animation: fadeIn 5s;
+}
