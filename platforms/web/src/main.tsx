@@ -18,8 +18,10 @@ import { RegisterPage } from "./pages/Account/Register";
 import LogoutPage from "./pages/Account/Logout";
 import AuthProvider from "./providers/Auth";
 import PublicRoute from "./components/Routes/PublicRoute";
-import ProtectedRoute from "./components/Routes/ProtectedRoute copy";
+import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import OasisPage from "./pages/Oasis";
+import PublishPage from "./pages/Publish";
+import PublishArticle from "./pages/Publish/PublishArticle";
 
 const container = document.getElementById("root");
 
@@ -81,6 +83,22 @@ const router = createBrowserRouter([
         <AboutPage />
       </DefaultLayout>
     ),
+  },
+  {
+    path: "/publish",
+    element: (
+      <ProtectedRoute>
+        <DefaultLayout>
+          <PublishPage />
+        </DefaultLayout>
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: "article/:id",
+        element: <PublishArticle />,
+      },
+    ]
   },
 ]);
 

@@ -38,7 +38,6 @@ export function* login(action: PayloadAction<any>): SagaResult {
 export function* logout(): SagaResult {
   try {
     const url = `/api/accounts/logout`;
-    console.log('logout')
     yield call(request, url, makePostReq());
   } catch (e) {
     yield put(actions.setLoading(false));

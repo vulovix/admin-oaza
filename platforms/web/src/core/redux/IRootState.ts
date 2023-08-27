@@ -1,5 +1,7 @@
 import { ABOUT_PAGE_SCOPE } from "@web/pages/About/constants";
 import { AboutPageState } from "@web/pages/About/types";
+import { PUBLISH_SCOPE } from "@web/pages/Publish/constants";
+import { PublishState } from "@web/pages/Publish/types";
 import { AUTH_SCOPE } from "@web/providers/Auth/constants";
 import { AuthState } from "@web/providers/Auth/types";
 import { THEME_SCOPE } from "@web/providers/Theme/constants";
@@ -12,4 +14,5 @@ export interface IRootState {
   [THEME_SCOPE]: IThemeState;
   [ABOUT_PAGE_SCOPE]: AboutPageState;
   [AUTH_SCOPE]: AuthState;
+  [PUBLISH_SCOPE]: PublishState;
 }

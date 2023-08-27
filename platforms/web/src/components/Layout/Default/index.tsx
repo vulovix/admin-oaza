@@ -7,7 +7,7 @@ export default function DefaultLayout({ children }: PropsWithChildren<unknown>):
   return (
     <div>
       <Header />
-      {/* <Nav /> */}
+      <Nav />
       {children}
     </div>
   );
