@@ -9,8 +9,8 @@ export const getPublishState = (state: IRootState): PublishState => state?.[PUBL
 export const selectPublishLoading = createSelector(getPublishState, (state: PublishState) => state.loading);
 
 export const selectArticle = createSelector(getPublishState, (state: PublishState) => state.article);
+export const selectCategory = createSelector(getPublishState, (state: PublishState) => state.category);
 export const selectArticles = createSelector(getPublishState, (state: PublishState) => state.articles);
 export const selectCategories = createSelector(getPublishState, (state: PublishState) => state.categories);
-
 
 export const selectPublishError = createSelector(getPublishState, (state: PublishState) => state.error);

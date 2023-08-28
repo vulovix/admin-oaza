@@ -43,6 +43,20 @@ export function* removeArticle(action: PayloadAction<Article>): SagaResult {
   }
 }
 
+
+export function* removeCategory(action: PayloadAction<Category>): SagaResult {
+  try {
+    const _id = action.payload;
+    const url = `/api/categories/${_id}`;
+
+    const response = (yield call(request, url, makeDeleteReq())) as Category;
+    yield put(actions.removeCategoryDone(response));
+  } catch (e) {
+  } finally {
+    yield put(actions.setLoading(false));
+  }
+}
+
 export function* createArticle(action: PayloadAction<Article>): SagaResult {
   try {
     const url = `/api/articles`;
@@ -65,6 +79,17 @@ export function* loadArticles(): SagaResult {
   }
 }
 
+export function* loadCategory(action: PayloadAction<string>): SagaResult {
+  try {
+    const url = `/api/categories/${action.payload}`;
+    const response = (yield call(request, url, makeGetReq())) as Category;
+    yield put(actions.loadCategoryDone(response));
+  } catch (e) {
+  } finally {
+    yield put(actions.setLoading(false));
+  }
+}
+
 export function* loadCategories(): SagaResult {
   try {
     const url = `/api/categories`;
@@ -76,11 +101,40 @@ export function* loadCategories(): SagaResult {
   }
 }
 
+export function* createCategory(action: PayloadAction<Article>): SagaResult {
+  try {
+    const url = `/api/categories`;
+    const response = (yield call(request, url, makePostReq(action.payload))) as Category;
+    yield put(actions.createCategoryDone(response));
+  } catch (e) {
+  } finally {
+    yield put(actions.setLoading(false));
+  }
+}
+
+export function* updateCategory(action: PayloadAction<Article>): SagaResult {
+  try {
+    const { _id, ...payload } = action.payload;
+    const url = `/api/categories/${_id}`;
+
+    const response = (yield call(request, url, makePatchReq({...payload}))) as Category;
+    yield put(actions.updateCategoryDone(response));
+  } catch (e) {
+  } finally {
+    yield put(actions.setLoading(false));
+  }
+}
+
+
 export default function* repository() {
   yield takeLatest(actions.loadArticle.type, loadArticle);
+  yield takeLatest(actions.loadCategory.type, loadCategory);
   yield takeLatest(actions.createArticle.type, createArticle);
+  yield takeLatest(actions.createCategory.type, createCategory);
   yield takeLatest(actions.removeArticle.type, removeArticle);
+  yield takeLatest(actions.removeCategory.type, removeCategory);
   yield takeLatest(actions.updateArticle.type, updateArticle);
+  yield takeLatest(actions.updateCategory.type, updateCategory);
   yield takeLatest(actions.loadArticles.type, loadArticles);
-  yield takeLatest(actions.loadArticles.type, loadCategories);
+  yield takeLatest(actions.loadCategories.type, loadCategories);
 }

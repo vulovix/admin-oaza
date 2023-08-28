@@ -1,5 +1,5 @@
 import { FormattedMessage, useDispatch, useReducer, useSaga, useSelector } from "@web/core";
-import { PUBLISH_SCOPE, getDefaultArticle } from "./constants";
+import { PUBLISH_SCOPE, getDefaultArticle, getDefaultCategory } from "./constants";
 import { actions, reducer } from "./slice";
 import saga from "./saga";
 import "./style.scss";
@@ -29,11 +29,25 @@ export default function PublishPage(): JSX.Element {
         // @ts-ignore
         dispatch(actions.createArticle(article));
     }
+    const onCreateCategory = (e): void => {
+        const category = getDefaultCategory();
+        console.log("dispa")
+        // @ts-ignore
+        dispatch(actions.createCategory(category));
+    }
 
     const onRemoveArticle = (articleId) => {
         if(window.confirm("Are you sure you want to remove article?")){
             dispatch(actions.removeArticle(articleId));
             if(id === articleId){
+                navigate('/publish');
+            }
+        }
+    }
+    const onRemoveCategory = (categoryId) => {
+        if(window.confirm("Are you sure you want to remove category?")){
+            dispatch(actions.removeCategory(categoryId));
+            if(id === categoryId){
                 navigate('/publish');
             }
         }
@@ -55,10 +69,18 @@ export default function PublishPage(): JSX.Element {
                     </Button>
                 </li>)}
             </ul>
-            <h4 className="section-title"><FormattedMessage id="categories"/></h4>
+            <h4 className="section-title">
+                <FormattedMessage id="categories"/>
+                <Button kind="success" onClick={onCreateCategory}>
+                    <FiPlus />
+                </Button>
+            </h4>
             <ul className="section-items">
                 {categories.map((category) => <li>
                     <NavLink to={`/publish/category/${category._id}`} >{category.name}</NavLink>
+                    <Button kind="danger" onClick={() => onRemoveCategory(category._id)}>
+                        <FiTrash />
+                    </Button>
                 </li>)}
             </ul>
         </div>

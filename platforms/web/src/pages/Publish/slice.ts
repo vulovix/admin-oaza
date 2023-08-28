@@ -13,7 +13,7 @@ const slice = createSlice({
     setError(state, action: PayloadAction<any>) {
       state.error = action.payload;
     },
-    createArticle(state, action: PayloadAction<Omit<Article, "id">>) {
+    createArticle(state, action: PayloadAction<Article>) {
       
     },
     createArticleDone(state, action: PayloadAction<Article>) {
@@ -58,10 +58,42 @@ const slice = createSlice({
       state.loading = false;
       state.article = action.payload;
     },
+    loadCategory(state, action: PayloadAction<string>) {
+      state.error = null;
+      state.loading = false;
+    },
+    loadCategoryDone(state, action: PayloadAction<Category>) {
+      state.error = null;
+      state.loading = false;
+      state.category = action.payload;
+    },
     loadCategoriesDone(state, action: PayloadAction<Array<Category>>) {
       state.error = null;
       state.loading = false;
       state.categories = action.payload;
+    },
+    createCategory(state, action: PayloadAction<Category>) {
+      
+    },
+    createCategoryDone(state, action: PayloadAction<Category>) {
+      state.categories = state.categories.concat(action.payload);
+    },
+    updateCategory(state, action: PayloadAction<Category>) {
+      state.error = null;
+      state.loading = false;
+    },
+    updateCategoryDone(state, action: PayloadAction<Category>) {
+      state.error = null;
+      state.loading = false;
+      state.categories = state.categories.map(x => x._id === action.payload._id ? action.payload : x);
+    },
+    removeCategory(state, action: PayloadAction<string>) {
+      
+    },
+    removeCategoryDone(state, action: PayloadAction<Category>) {
+      state.error = null;
+      state.loading = false;
+      state.categories = state.categories.filter(x => x._id !== action.payload._id);
     },
   },
 });

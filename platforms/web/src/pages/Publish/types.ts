@@ -20,6 +20,7 @@ export interface Category {
 export interface PublishState {
   loading: boolean;
   article: null | Article;
+  category: null | Category;
   articles: Array<Article>;
   categories: Array<Category>;
   error: null | Error;

@@ -22,6 +22,7 @@ import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import OasisPage from "./pages/Oasis";
 import PublishPage from "./pages/Publish";
 import PublishArticle from "./pages/Publish/PublishArticle";
+import PublishCategory from "./pages/Publish/PublishCategory";
 
 const container = document.getElementById("root");
 
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "article/:id",
         element: <PublishArticle />,
+      },
+      {
+        path: "category/:id",
+        element: <PublishCategory />,
       },
     ]
   },
