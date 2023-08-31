@@ -1,4 +1,8 @@
-export const PERSISTED_SCOPE = "persisted.example";
+export const PERSISTED_SCOPE = "persisted";
+
 export const initialState = {
-  persisted: 0,
+  device: {
+    id: Math.random().toString(36),
+  },
+  conversations: {},
 };

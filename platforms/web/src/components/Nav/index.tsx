@@ -11,6 +11,7 @@ export default function Nav(): JSX.Element {
         <ul>
             {isLoggedIn ? <>
                 <li><NavLink to="/publish">Publish</NavLink></li>
+                <li><NavLink to="/ai">AI</NavLink></li>
                 {/* <li><NavLink to="/notes">Notes</NavLink></li> */}
                 {/* <li><NavLink to="/ai">AI</NavLink></li> */}
             </> : <>

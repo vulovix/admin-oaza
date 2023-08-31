@@ -1,3 +1,5 @@
+import { CHAT_SCOPE } from "@web/pages/AI/constants";
+import { ChatState } from "@web/pages/AI/types";
 import { ABOUT_PAGE_SCOPE } from "@web/pages/About/constants";
 import { AboutPageState } from "@web/pages/About/types";
 import { HOME_PAGE_SCOPE } from "@web/pages/Home/constants";
@@ -18,4 +20,5 @@ export interface IRootState {
   [AUTH_SCOPE]: AuthState;
   [PUBLISH_SCOPE]: PublishState;
   [HOME_PAGE_SCOPE]: HomePageState;
+  [CHAT_SCOPE]: ChatState;
 }

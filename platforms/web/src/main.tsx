@@ -26,6 +26,7 @@ import PublishCategory from "./pages/Publish/PublishCategory";
 import Articles from "./pages/Home/Articles";
 import CategorizedArticles from "./pages/Home/CategorizedArticles";
 import Article from "./pages/Home/Article";
+import AIPage from "./pages/AI";
 
 const container = document.getElementById("root");
 
@@ -60,6 +61,16 @@ const router = createBrowserRouter([
       <ProtectedRoute>
         <DefaultLayout>
           <OasisPage />
+        </DefaultLayout>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/ai",
+    element: (
+      <ProtectedRoute>
+        <DefaultLayout>
+          <AIPage />
         </DefaultLayout>
       </ProtectedRoute>
     ),
