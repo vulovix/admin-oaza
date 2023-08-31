@@ -9,7 +9,7 @@ import { actions } from "../slice";
 
 export default function Filter(): JSX.Element {
     const categories = useSelector(selectCategories);
-    const { id } = useParams();
+    const { categoryId } = useParams();
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(actions.loadCategories());
@@ -18,7 +18,7 @@ export default function Filter(): JSX.Element {
         <button><BsFilterLeft /></button>
         <ul>
             {categories?.map((category): JSX.Element => {
-                const isActive = id === category.slug;
+                const isActive = categoryId === category.slug;
                 return <li className={isActive ? "active": undefined}>
                     <NavLink to={`${isActive ? '/':'/categories/' + category.slug}`}>{category.name}</NavLink>
                 </li>

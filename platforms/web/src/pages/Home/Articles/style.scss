@@ -60,10 +60,10 @@
     }
     .area-left{
         gap: 0.5rem;
-        & > div:not(:first-child){
+        & > .grid-article:not(:first-child){
             padding-top: 0.5rem;
         }
-        & > div:not(:last-child){
+        & > .grid-article:not(:last-child){
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border);
         }

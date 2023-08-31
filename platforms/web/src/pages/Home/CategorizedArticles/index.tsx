@@ -10,15 +10,14 @@ import { Loader } from "@equilibrius/ui";
 
 export default function CategorizedArticles(): JSX.Element {
     const dispatch = useDispatch();
-    const { id } = useParams();
+    const { categoryId } = useParams();
     const articles = useSelector(selectCategorizedArticles);
     
     useEffect((): void => {
-        console.log('id', id);
-        if(id){
-            dispatch(actions.loadArticlesByCategoryId(id));
+        if(categoryId){
+            dispatch(actions.loadArticlesByCategoryId(categoryId));
         }
-    }, [id]);
+    }, [categoryId]);
 
     if(!articles?.length){
         return <div className="articles">

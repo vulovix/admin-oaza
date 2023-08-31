@@ -12,13 +12,13 @@ export default function Article(): JSX.Element {
     const article = useSelector(selectArticle);
 
     const dispatch = useDispatch();
-    const { id } = useParams();
+    const { articleId } = useParams();
     
     useEffect((): void => {
-        if(id){
-            dispatch(actions.loadArticleById(id));
+        if(articleId){
+            dispatch(actions.loadArticleById(articleId));
         }
-    }, [id]);
+    }, [articleId]);
 
 
     if(!article){
