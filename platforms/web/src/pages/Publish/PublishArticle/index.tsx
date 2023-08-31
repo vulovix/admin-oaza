@@ -102,7 +102,7 @@ export default function PublishArticle(): JSX.Element {
         <div className="image-preview" style={{
             backgroundImage: `url(` + state.image + `)`,
         }}></div>
-        <Input name="image" accept="image/png, image/jpeg" type="file" onChange={onFileChange} />
+        <Input name="image" accept="image/*" type="file" onChange={onFileChange} />
         <Select
             value={state.categories.map(category => ({
                 value: category._id,
@@ -119,6 +119,6 @@ export default function PublishArticle(): JSX.Element {
             options={categoryOptions}
         />
         <Input name="slug" onChange={onChange} value={state?.slug} labelComponent={() => <FormattedMessage id="slug" />} />
-        <Editor id={id} name="description" onChange={onChange} initialState={state ? state.description : null} />
+        <Editor readonly={false} id={id} name="description" onChange={onChange} initialState={state ? state.description : null} />
     </div>
 }

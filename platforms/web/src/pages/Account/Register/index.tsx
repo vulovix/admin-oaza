@@ -1,5 +1,5 @@
 import { Button, Input } from "@equilibrius/ui";
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Logo from "@web/components/Logo";
@@ -40,9 +40,9 @@ export function RegisterPage(): JSX.Element {
   };
 
   const onSubmit = (): void => {
-    console.log("onsubmit", email && firstName && lastName && password && password === confirmPassword);
     if (email && firstName && lastName && password && password === confirmPassword) {
-      dispatch(actions.register({ email, firstName, lastName, password }));
+      window.alert("This feature is currently unavailable.");
+      // dispatch(actions.register({ email, firstName, lastName, password }));
     }
   };
   return (

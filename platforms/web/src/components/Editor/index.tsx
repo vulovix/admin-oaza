@@ -32,17 +32,19 @@ function Placeholder() {
 
 interface EditorProps {
   id: string;
+  readonly: boolean;
   name: string;
   initialState: null | string;
   onChange(e: { target: { value: string, name: string } });
 }
-export default function Editor({initialState, onChange, name, id }: EditorProps) {
+export default function Editor({initialState, onChange, name, id, readonly }: EditorProps) {
 
   const editorConfig = useMemo(() => {
     const decoded = initialState ? decodeURIComponent(initialState) : null;
     return  {
       namespace: id,
       theme: ExampleTheme,
+      editable: readonly ? false : true,
       onError(error) {
         throw error;
       },
@@ -61,7 +63,7 @@ export default function Editor({initialState, onChange, name, id }: EditorProps)
       ],
       editorState: decoded,
     };
-  }, [initialState, id]);
+  }, [initialState, id, readonly]);
   
   function onChangeInternal({editorState}) {
     const editorStateJSON = editorState.toJSON();
@@ -74,27 +76,29 @@ export default function Editor({initialState, onChange, name, id }: EditorProps)
   }
 
   return (
-   <div className="editor">
-    <FormattedMessage id="editor" />
+   <div className={`editor ${readonly ? 'readonly' : ''}`}>
+    {readonly ? <></> : <FormattedMessage id="editor" />}
      <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
-        <ToolbarPlugin />
+        {readonly ? <></> : <ToolbarPlugin />}
         <div className="editor-inner">
           <RichTextPlugin
             contentEditable={<ContentEditable className="editor-input" />}
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
           />
-          <HistoryPlugin />
-          {/* <TreeViewPlugin /> */}
-          <OnChangePlugin id={id} editorState={editorConfig.editorState} onChange={onChangeInternal} />
-          <AutoFocusPlugin />
-          <CodeHighlightPlugin />
-          <ListPlugin />
-          <LinkPlugin />
-          <AutoLinkPlugin />
-          <ListMaxIndentLevelPlugin maxDepth={7} />
-          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+          {!readonly ? <>
+            <HistoryPlugin />
+            {/* <TreeViewPlugin /> */}
+            <OnChangePlugin id={id} editorState={editorConfig.editorState} onChange={onChangeInternal} />
+            <AutoFocusPlugin />
+            <CodeHighlightPlugin />
+            <ListPlugin />
+            <LinkPlugin />
+            <AutoLinkPlugin />
+            <ListMaxIndentLevelPlugin maxDepth={7} />
+            <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+            </> : <></>}
         </div>
       </div>
     </LexicalComposer>

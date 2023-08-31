@@ -7,7 +7,7 @@ export default function LogoSimple(props: PropsWithChildren<LogoProps>): JSX.Ele
   return (
     <div className="oasis-logo">
       <img className="invert" src="/favicon64x64.png"/>
-      <h1>Oasis</h1>
+      <h1>Oaza</h1>
     </div>
   );
 }

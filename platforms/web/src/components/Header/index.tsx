@@ -9,17 +9,17 @@ export default function Header(): JSX.Element {
     <header className="header">
       <div className="header-content">
         <div className="header-nav">
-          <ul>
-              {/* {isLoggedIn ? <>
+          {/* <ul>
+              {isLoggedIn ? <>
                   <li><NavLink to="/publish">Publish</NavLink></li>
                   <li><NavLink to="/notes">Notes</NavLink></li>
                   <li><NavLink to="/ai">AI</NavLink></li>
-              </> : <></>} */}
-          </ul>
+              </> : <></>}
+          </ul> */}
         </div>
         <Link to={isLoggedIn ? "/": "/sign-in"} className="logo">
-          <img className="invert" src="/favicon.png" alt="Logo" />
-          <h1>Oasis</h1>
+          <img className="invert" src="/favicon64x64.png" alt="Logo" />
+          <h1>Oaza</h1>
           {/* <h2><span className="wings"></span> August 24, 2023 <span className="wings"></span>  </h2> */}
         </Link>
         <div className="header-nav">

@@ -1,11 +1,15 @@
 .articles{
     display: grid;
-    gap: 0.5rem;
+    gap: 1rem;
     max-width: 940px;
     margin: 0 auto;  
     grid-template-columns: 3fr 6fr 3fr;
     grid-template-areas: 'left center right';
 
+    .center{
+        justify-content: center;
+        align-items: center;
+    }
     .area-left{
         grid-area: left;
     }
@@ -21,14 +25,17 @@
         background-color: var(--border);
         margin: 0.5rem 0;
     }
-    h1{
+    .title{
         font-size: 1.25rem;
     }
-    p{
+    .editor.readonly p,
+    .paragraph{
+        opacity: 0.5;
         font-size: 0.85rem;
         text-align: justify;
+        line-height: 1.35rem;
     }
-    span{
+    .secondary {
         opacity: 0.5;
         font-size: 0.75rem;
     }
@@ -39,70 +46,32 @@
         text-transform: uppercase;
         opacity: 1;
     }
-    .info{
-        display: grid;
-        gap: 0.5rem;
-    }
     .img{
         background-size: cover;
+        min-height: 100px;
         background-position: center;
     }
-    .article-1{
-        display: grid;
-        gap: 0.5rem;
-        grid-template-columns: 1fr 1fr;
-       
-    }
-    .article-2{
-        display: grid;
-        gap: 0.5rem;
-        .reversed{
-            flex-direction: column-reverse;
-        }
-        & > div{
-            display: grid;
-            gap: 0.5rem;
-            grid-template-columns: 1fr 1fr;
-        }
-        // .img{2
-    }
-    .article-3{
-        border: 1px solid var(--border);
-        padding: 0.5rem;
-        display: grid;
-        gap: 0.5rem;
-        h1{
-            font-size: 2rem;
-        }
-        .img{
-            min-height: 250px;
-        }
-    }
-    .article-mini {
-        display: flex;
-        gap: 0.5rem;
-        padding: 0.5rem 0;
-        .img{
-            height: 60px;
-            width: 50%;
-        }
-        .info{
-            h1{
-                font-size: 0.9rem;
-            }
-        }
-    }
-    .article-minimal {
-        display: grid;
-        gap: 0.5rem;
-        padding: 0.5rem 0;
-        h1{
-            font-size: 0.9rem;
-        }
-    }
     & > div {
-        .article-minimal:not(:last-child),
-        .article-mini:not(:last-child){
+        .minimal-article:not(:last-child),
+        .mini-article:not(:last-child){
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+    }
+    .area-left{
+        gap: 0.5rem;
+        & > div:not(:first-child){
+            padding-top: 0.5rem;
+        }
+        & > div:not(:last-child){
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+    }
+    .area-center{
+        display: grid;
+        gap: 0.5rem;
+        & > .main-article:not(:last-child){
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border);
         }
@@ -113,26 +82,50 @@
 
 @media screen and (max-width: 640px) {
     .articles{
+        font-size: 0.75rem;
+        gap: 0;
         grid-template-areas: 'center' 'left' 'right';
         grid-template-columns: 1fr!important;
-        .article-2{
-            .img{
-                min-height: 250px;
-            }
-            .reversed{
-                flex-direction: column;
-            }
-            & > div{
-                display: flex;
-                flex-direction: column;
-            }
+    }
+    .area-center,
+    .area-left,
+    .area-right{
+        margin: 0 0.5rem;
+    }
+    .area-center{
+        margin: 0 0.5rem;
+        .main-article{
+            padding: 0rem;
         }
-        .article-mini{
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            .img{
-                width: 100%;
-            }
+        & > .main-article:not(:last-child){
+            padding-bottom: 0.5rem
         }
+        & > .main-article:last-child{
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+    }
+    .area-left{
+        display: grid;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-bottom: 1px solid var(--border);
+        & > div{
+            border-bottom: none!important;
+        }
+        & > div:not(:last-child){
+            padding-right: 0.5rem;
+            border-right: 1px solid var(--border);
+        }
+
+        & > div:not(:first-child){
+            padding-top: 0rem!important;
+        }
+        // & > div:nth-child(2n){
+        //     & > div{
+        //         flex-direction: column!important;
+        //     }
+        // }
     }
 }

@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { Provider as ReduxProvider } from "react-redux";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 
 import "./index.css";
@@ -23,6 +23,9 @@ import OasisPage from "./pages/Oasis";
 import PublishPage from "./pages/Publish";
 import PublishArticle from "./pages/Publish/PublishArticle";
 import PublishCategory from "./pages/Publish/PublishCategory";
+import Articles from "./pages/Home/Articles";
+import CategorizedArticles from "./pages/Home/CategorizedArticles";
+import Article from "./pages/Home/Article";
 
 const container = document.getElementById("root");
 
@@ -36,6 +39,20 @@ const router = createBrowserRouter([
         <HomePage />
       </DefaultLayout>
     ),
+    children: [
+      {
+        path: "",
+        element: <Articles />,
+      },
+      {
+        path: "articles/:id",
+        element: <Article />,
+      },
+      {
+        path: "categories/:id",
+        element: <CategorizedArticles />,
+      },
+    ]
   },
   {
     path: "/oasis",
@@ -105,6 +122,24 @@ const router = createBrowserRouter([
       },
     ]
   },
+  // {
+  //   path: "/categories",
+  //   element: (
+  //     <DefaultLayout>
+  //       <CategoriesPage />
+  //     </DefaultLayout>
+  //   ),
+  //   children: [
+  //     {
+  //       path: "",
+  //       element: <Navigate to="/" />,
+  //     },
+  //     {
+  //       path: ":id",
+  //       element: <PublishArticle />,
+  //     },
+  //   ]
+  // },
 ]);
 
 root.render(

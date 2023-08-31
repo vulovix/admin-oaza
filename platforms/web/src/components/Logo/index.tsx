@@ -10,7 +10,7 @@ export default function Logo(props: PropsWithChildren<LogoProps>): JSX.Element {
     <div className="oasis-logo">
       <Link to={props.to || "/"} className={`logo-title`}>
         <img className="invert" src="/favicon64x64.png"/>
-        <h1>Oasis</h1>
+        <h1>Oaza</h1>
       </Link>
     </div>
   );

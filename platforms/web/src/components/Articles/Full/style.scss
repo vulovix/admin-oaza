@@ -1,0 +1,17 @@
+.full-article {
+    display: grid;
+    gap: 0.5rem;
+    align-content: baseline;
+    h1{
+        font-size: 2rem;
+    }
+    .img{
+        min-height: 300px;
+    }
+
+    @media screen and (max-width: 640px) {
+        & {
+            padding: 0 0.5rem;
+        }
+    }
+}
