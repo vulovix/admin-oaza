@@ -14,9 +14,12 @@ export default function Article(): JSX.Element {
     const dispatch = useDispatch();
     const { articleId } = useParams();
     
-    useEffect((): void => {
+    useEffect(() => {
         if(articleId){
             dispatch(actions.loadArticleById(articleId));
+        }
+        return () => {
+            dispatch(actions.resetArticle());
         }
     }, [articleId]);
 

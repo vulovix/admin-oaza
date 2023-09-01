@@ -1,11 +1,11 @@
 import * as React from "react";
 
 import { useThemeProvider } from "./slice";
-import { useDetectTheme } from "./useDetectTheme";
+import { useThemeDetector } from "./useThemeDetector";
 
 export const ThemeProvider = (props: React.PropsWithChildren<unknown>): JSX.Element => {
   useThemeProvider();
-  const { preferedTheme } = useDetectTheme();
+  const { preferedTheme } = useThemeDetector();
   React.useEffect(() => {
     document.documentElement.setAttribute("theme", preferedTheme);
   }, [preferedTheme]);

@@ -1,3 +1,3 @@
-export default function ModalHeader(): JSX.Element {
+export default function ModalFooter(): JSX.Element {
   return <></>;
 }

@@ -8,7 +8,7 @@ export interface IThemeDetector {
   preferedTheme: string;
   opositeTheme: ThemeEnum;
 }
-export const useDetectTheme = (): IThemeDetector => {
+export const useThemeDetector = (): IThemeDetector => {
   const themeKey = useSelector(selectThemeKey);
   const preferedTheme: any = themeKey === ThemeEnum.System ? (isSystemDark ? ThemeEnum.Dark : ThemeEnum.Light) : themeKey;
   const opositeTheme: ThemeEnum = preferedTheme === ThemeEnum.Dark ? ThemeEnum.Light : ThemeEnum.Dark;

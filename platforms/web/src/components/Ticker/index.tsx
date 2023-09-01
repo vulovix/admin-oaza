@@ -24,7 +24,6 @@ export default function HomePage(): JSX.Element {
             setIsHidden(document.hidden);
         }, 1000);
         if (ticker) {
-            console.log('registered')
             ticker.addEventListener("mouseover", stopMoving);
             ticker.addEventListener("mouseout", continueMoving);
         }

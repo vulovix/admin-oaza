@@ -17,6 +17,10 @@ export const selectConversations = createSelector([selectState], (state: Persist
     .reverse();
 });
 
+export const selectExperimentalInvert = createSelector([selectState], (state: PersistedState) => {
+  return state.experimental.invert;
+});
+
 // export const selectLoading = createSelector([selectState], (state: PersistedState) => {
 //   return state.loading;
 // });

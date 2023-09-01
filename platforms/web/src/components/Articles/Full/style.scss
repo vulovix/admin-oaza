@@ -2,8 +2,9 @@
     display: grid;
     gap: 0.5rem;
     align-content: baseline;
-    h1{
+    .title{
         font-size: 2rem;
+        font-weight: 600;
     }
     .img{
         min-height: 300px;

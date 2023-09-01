@@ -8,6 +8,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     changeTheme(state, action: PayloadAction<ThemeEnum>) {
+      localStorage.setItem("selectedTheme", action.payload);
       state.selected = action.payload;
     },
   },

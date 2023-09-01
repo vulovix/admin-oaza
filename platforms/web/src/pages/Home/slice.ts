@@ -47,6 +47,12 @@ const slice = createSlice({
     loadArticleByIdFailed: (state) => {
       state.loading = false;
     },
+    resetArticle: (state) => {
+      state.article = undefined;
+    },
+    resetCategorizedArticles: (state) => {
+      state.categorizedArticles = [];
+    },
   },
 });
 

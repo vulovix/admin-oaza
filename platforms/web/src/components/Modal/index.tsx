@@ -16,7 +16,7 @@ export default forwardRef(function Modal(props: PropsWithChildren<ModalProps>, r
           <Header {...headerProps} />
         </div>
         <div className="body">{children}</div>
-        <div className="footer">
+        <div className="modal-footer">
           <Footer />
         </div>
         <div></div>

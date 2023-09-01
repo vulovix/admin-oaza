@@ -3,7 +3,7 @@
     width: 100%;
     position: absolute;
     left: 0;
-    top: 7%;
+    top: 0%;
     padding: 0rem 1rem;
     z-index: 1;
     .content{
@@ -33,5 +33,8 @@
     .body,
     .modal-footer {
         padding: 1rem;
+        .options-button{
+            padding: 1rem;
+        }
     }
 }

@@ -17,7 +17,7 @@ const slice = createSlice({
       
     },
     createArticleDone(state, action: PayloadAction<Article>) {
-      state.articles = state.articles.concat(action.payload);
+      state.articles = [action.payload, ...state.articles];
     },
     loadArticles(state) {
       state.error = null;
@@ -94,6 +94,9 @@ const slice = createSlice({
       state.error = null;
       state.loading = false;
       state.categories = state.categories.filter(x => x._id !== action.payload._id);
+    },
+    resetArticle: (state) => {
+      state.article = null;
     },
   },
 });

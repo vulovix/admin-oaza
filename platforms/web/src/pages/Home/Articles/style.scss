@@ -29,8 +29,9 @@
         font-size: 1.25rem;
     }
     .editor.readonly p,
-    .paragraph{
-        opacity: 0.5;
+    .paragraph,
+    .editor-list-ol,
+    .editor-list-ul {
         font-size: 0.85rem;
         text-align: justify;
         line-height: 1.35rem;
@@ -47,9 +48,12 @@
         opacity: 1;
     }
     .img{
-        background-size: cover;
         min-height: 100px;
+        // background-size: cover;
+        // background-position: center;
+        background-size: contain;
         background-position: center;
+        background-repeat: no-repeat;
     }
     & > div {
         .minimal-article:not(:last-child),

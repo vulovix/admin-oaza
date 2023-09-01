@@ -9,6 +9,7 @@ import { actions } from "../slice";
 import "./style.scss";
 import Select, { OnChangeValue } from "react-select";
 import { Article } from "../types";
+import Image from "@web/components/Articles/Image";
 
 export default function PublishArticle(): JSX.Element {
     const { id } = useParams();
@@ -22,7 +23,7 @@ export default function PublishArticle(): JSX.Element {
             dispatch(actions.loadArticle(id));
         }
         return () => {
-            
+            dispatch(actions.resetArticle());
         }
     }, [id]);
 
@@ -99,9 +100,7 @@ export default function PublishArticle(): JSX.Element {
         <Input name="title" onChange={onChange} value={state?.title} labelComponent={() => <FormattedMessage id="title" />} />
         <Input name="subtitle" onChange={onChange} value={state?.subtitle} labelComponent={() => <FormattedMessage id="subtitle" />} />
         <FormattedMessage id="image" />
-        <div className="image-preview" style={{
-            backgroundImage: `url(` + state.image + `)`,
-        }}></div>
+        <Image src={state.image} />
         <Input name="image" accept="image/*" type="file" onChange={onFileChange} />
         <Select
             value={state.categories.map(category => ({

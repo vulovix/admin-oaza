@@ -3,6 +3,7 @@ import { BsThreeDots } from "react-icons/bs";
 
 import { FormProps, Message, Role } from "../types";
 import "./style.scss";
+import { Input } from "@equilibrius/ui";
 
 
 export default function Form(props: FormProps): JSX.Element {
@@ -32,20 +33,22 @@ export default function Form(props: FormProps): JSX.Element {
   };
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <input
-        // rows={1}
-        type="text"
-        ref={inputRef}
-        autoComplete="off"
-        value={state.content}
-        placeholder="Ask anything..."
-        className="text-input"
-        name="content"
-        onChange={handleChange}
-      />
-      <button type="button" className="options-button" onClick={props.handleOpenOptions}>
-        <BsThreeDots />
-      </button>
+      <div className="form-inner">
+        <Input
+          // rows={1}
+          type="text"
+          ref={inputRef}
+          autoComplete="off"
+          value={state.content}
+          placeholder="Ask anything..."
+          className="text-input"
+          name="content"
+          onChange={handleChange}
+        />
+        <button type="button" className="options-button" onClick={props.handleOpenOptions}>
+          <BsThreeDots />
+        </button>
+      </div>
     </form>
   );
 }

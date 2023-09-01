@@ -1,4 +1,7 @@
-      .other h2 {
+.editor{
+  position: relative;
+}
+.other h2 {
         // font-size: 18px;
         color: #444;
         margin-bottom: 7px;
@@ -99,6 +102,7 @@
       }
       
       .editor-text-code {
+        // background-color: var(--border);
         background-color: rgb(240, 242, 245);
         padding: 1px 0.25rem;
         font-family: Menlo, Consolas, Monaco, monospace;
@@ -127,16 +131,17 @@
       }
       
       .editor-code {
-        background-color: rgb(240, 242, 245);
+        background-color: rgba(245, 249, 255, 0.1);
         font-family: Menlo, Consolas, Monaco, monospace;
         display: block;
         padding: 8px 8px 8px 52px;
         line-height: 1.53;
-        font-size: 13px;
+        font-size: 0.75rem;
         margin: 0;
         margin-top: 8px;
         margin-bottom: 8px;
         tab-size: 2;
+        color: var(--text);
         /* white-space: pre; */
         overflow-x: auto;
         position: relative;
@@ -145,10 +150,10 @@
       .editor-code:before {
         content: attr(data-gutter);
         position: absolute;
-        background-color: #eee;
+        background-color: transparent; // rgba(245, 249, 255, 0.1);;
         left: 0;
         top: 0;
-        border-right: 1px solid #ccc;
+        // border-right: 1px solid #ccc;
         padding: 8px;
         color: #777;
         white-space: pre-wrap;
@@ -209,33 +214,35 @@
       }
       
       .editor-heading-h1 {
-        font-size: 24px;
-        color: rgb(5, 5, 5);
+        font-size: 1.75rem;
+        color: var(--text);
         font-weight: 400;
         margin: 0;
         margin-bottom: 12px;
+        font-weight: 500;
         padding: 0;
       }
       
       .editor-heading-h2 {
-        font-size: 15px;
-        color: rgb(101, 103, 107);
-        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--text);
+        opacity: 0.5;
         margin: 0;
         margin-top: 10px;
+        font-weight: 500;
         padding: 0;
-        text-transform: uppercase;
       }
       
       .editor-quote {
         margin: 0;
-        margin-left: 20px;
-        font-size: 15px;
-        color: rgb(101, 103, 107);
-        border-left-color: rgb(206, 208, 212);
+        margin-left: 1.5rem;
+        font-size: 1rem;
+        color: var(--text);
+        opacity: 0.5;
+        border-left-color: var(--border-dark);
         border-left-width: 4px;
         border-left-style: solid;
-        padding-left: 16px;
+        padding-left: 0.5rem;
       }
       
       .editor-list-ol {
@@ -386,12 +393,12 @@
       }
       
       .toolbar .toolbar-item:hover:not([disabled]) {
-        background-color: #eee;
+        background-color: var(--background);
       }
       
       .toolbar .divider {
         width: 1px;
-        background-color: #eee;
+        background-color: var(--background);
         margin: 0 4px;
       }
       

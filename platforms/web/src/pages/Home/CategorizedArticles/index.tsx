@@ -13,9 +13,12 @@ export default function CategorizedArticles(): JSX.Element {
     const { categoryId } = useParams();
     const articles = useSelector(selectCategorizedArticles);
     
-    useEffect((): void => {
+    useEffect(() => {
         if(categoryId){
             dispatch(actions.loadArticlesByCategoryId(categoryId));
+        }
+        return () => {
+            dispatch(actions.resetCategorizedArticles());
         }
     }, [categoryId]);
 

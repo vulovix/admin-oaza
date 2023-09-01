@@ -17,6 +17,9 @@ const slice = createSlice({
       // @ts-ignore
       state.conversations[action.payload.id] = undefined;
     },
+    setExperimentalInvert: (state, action: PayloadAction<boolean>) => {
+      state.experimental.invert = action.payload;
+    },
   },
 });
 
