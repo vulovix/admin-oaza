@@ -40,6 +40,7 @@ import {
   getDefaultCodeLanguage,
   getCodeLanguages
 } from "@lexical/code";
+import ImageToolbar from "./ImageToolbar";
 
 const LowPriority = 1;
 
@@ -693,6 +694,7 @@ export default function ToolbarPlugin() {
           </button>{" "}
         </>
       )}
+      <ImageToolbar />
     </div>
   );
 }

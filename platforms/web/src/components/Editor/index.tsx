@@ -25,6 +25,8 @@ import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 import { FormattedMessage } from "react-intl";
 import OnChangePlugin from "./plugins/OnChangePlugin";
 import { useMemo, useRef } from "react";
+import ImagesPlugin from "./plugins/ImagePlugin";
+import { ImageNode } from "./nodes/ImageNode";
 
 function Placeholder() {
   return <div className="editor-placeholder">Enter some rich text...</div>;
@@ -59,7 +61,8 @@ export default function Editor({initialState, onChange, name, id, readonly }: Ed
         TableCellNode,
         TableRowNode,
         AutoLinkNode,
-        LinkNode
+        LinkNode,
+        ImageNode
       ],
       editorState: decoded,
     };
@@ -92,6 +95,7 @@ export default function Editor({initialState, onChange, name, id, readonly }: Ed
             {/* <TreeViewPlugin /> */}
             <OnChangePlugin id={id} editorState={editorConfig.editorState} onChange={onChangeInternal} />
             <AutoFocusPlugin />
+            <ImagesPlugin />
             <CodeHighlightPlugin />
             <ListPlugin />
             <LinkPlugin />
