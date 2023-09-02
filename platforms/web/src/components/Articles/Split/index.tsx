@@ -3,9 +3,10 @@ import "./style.scss";
 import { FormattedDate } from "react-intl";
 import { NavLink } from "react-router-dom";
 import Image from "../Image";
+import ImageAsync from "../ImageAsync";
 
 export default function SplitArticle(props: Article): JSX.Element {
-    const { image, title, subtitle, createdAt } = props;
+    const { slug, title, subtitle, createdAt } = props;
     return <NavLink className="split-article" to={`/articles/${props.slug}`}>
             <div className="info">
             <h1 className="title">{title}</h1>
@@ -16,6 +17,6 @@ export default function SplitArticle(props: Article): JSX.Element {
                 {subtitle}
             </p>
         </div>
-        <Image src={image} />
+        <ImageAsync src={`/api/articles/public/images/${slug}`} />
     </NavLink>
 }

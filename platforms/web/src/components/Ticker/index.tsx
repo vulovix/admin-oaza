@@ -1,10 +1,11 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { Fragment, MutableRefObject, useEffect, useRef, useState } from 'react';
 import Ticker from 'react-ticker'
 import "./style.scss";
 import TickerItem from './TickerItem';
 import { useSelector } from 'react-redux';
 import { selectArticles } from '@web/pages/Home/selectors';
 import { Loader } from '@equilibrius/ui';
+import ImageAsync from '../Articles/ImageAsync';
 
 export default function HomePage(): JSX.Element {
     const articles = useSelector(selectArticles);
@@ -46,7 +47,7 @@ export default function HomePage(): JSX.Element {
             {/** @ts-ignore */}
             {<Ticker move={isHidden ? false : isMoving} speed={10}>
                 {() => articles.map(x => <TickerItem path={`/articles/${x.slug}`} key={x._id}>
-                    <img className='' src={x.image} />
+                    <ImageAsync Loader={Fragment} src={`/api/articles/public/images/${x.slug}`} />
                     <span>{x.title}</span>
                 </TickerItem>)}
             </Ticker>}
