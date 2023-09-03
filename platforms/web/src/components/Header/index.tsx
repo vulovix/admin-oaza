@@ -17,7 +17,7 @@ export default function Header(): JSX.Element {
               </> : <></>}
           </ul> */}
         </div>
-        <Link to={isLoggedIn ? "/": "/sign-in"} className="logo">
+        <Link to={"/"} className="logo">
           <img className="invert" src="/favicon64x64.png" alt="Logo" />
           <h1>Oaza</h1>
           {/* <h2><span className="wings"></span> August 24, 2023 <span className="wings"></span>  </h2> */}

@@ -19,7 +19,23 @@ export default function Image({ src }: { src: string }): JSX.Element {
         return themeKey === ThemeEnum.Dark ? "invert(1)" : "invert(0)";
     }, [themeKey, experimentalInvertEnabled]);
 
+    const backgroundColor = useMemo(() => {
+        switch(themeKey){
+            case ThemeEnum.Dark: {
+                if(experimentalInvertEnabled){
+                    return "var(--background-invert)";
+                }
+                return "var(--background-invert)";
+            };
+            case ThemeEnum.Light: {
+                return "var(--background)";
+            };
+            default: return "var(--background)";
+        }
+    }, [themeKey, experimentalInvertEnabled]);
+
     return <div className="img" style={{
+        backgroundColor,
         backgroundImage: `url(` + src + `)`,
         filter: filter
     }}></div>

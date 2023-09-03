@@ -19,6 +19,7 @@
 :root[theme="light"] {
   --text: #333;
   --background: #ffffff;
+  --background-invert: #000;
 
   --primary: #CEEBFE;
   --primary-dark: #6FA2C3;
@@ -33,6 +34,7 @@
 :root[theme="dark"] {
   --text: #FFF;
   --background: #000;
+  --background-invert: #FFF;
 
   --primary: #CEEBFE;
   --primary-dark: #6FA2C3;

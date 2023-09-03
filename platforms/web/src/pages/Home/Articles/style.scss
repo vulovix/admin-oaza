@@ -80,6 +80,17 @@
             border-bottom: 1px solid var(--border);
         }
     }
+    @media screen and (max-width: 640px) {
+        .area-left{
+            & > .grid-article:not(:first-child){
+                padding-top: 0rem;
+            }
+            & > .grid-article:not(:last-child){
+                padding-bottom: 0rem;
+                border-bottom: none;
+            }
+        }
+    }
 }
 
 

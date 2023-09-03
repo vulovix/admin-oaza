@@ -43,9 +43,9 @@ function LazyImage({
       alt={altText}
       ref={imageRef}
       style={{
-        height,
-        maxWidth,
-        width
+        // height,
+        maxWidth: "100%",
+        // width
       }}
     />
   );
