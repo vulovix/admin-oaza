@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "start":"yarn workspace @equilibrius/web start",
+    "serve":"yarn workspace @equilibrius/web serve",
     "build":"yarn workspace @equilibrius/web build",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\""
   },

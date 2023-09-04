@@ -2,12 +2,56 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
 import tsConfigPaths from "vite-tsconfig-paths";
+import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
-  plugins: [react(), tsConfigPaths(), viteCompression()],
+  plugins: [
+    react(),
+    tsConfigPaths(),
+    viteCompression(),
+    VitePWA({
+      manifestFilename: "manifest.json",
+      manifest: {
+        name: "Oaza",
+        short_name: "Oaza",
+        description: "Welcome to Oasis",
+        background_color: "#FFFFFF",
+        display: "standalone",
+        theme_color: "#000000",
+        start_url: "/",
+        icons: [
+          { "src": "/favicon192x192.png", "type": "image/png", "sizes": "192x192" },
+          { "src": "/favicon192x192.png", "type": "image/png", "sizes": "192x192", "purpose": "maskable" },
+          { "src": "/favicon512x512.png", "type": "image/png", "sizes": "512x512" },
+          { "src": "/favicon512x512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+        ]
+      },
+      // selfDestroying: true,
+      strategies: 'injectManifest',
+      // srcDir:"public",
+      // filename: 'pub-sw.js',
+      registerType: "autoUpdate",
+      srcDir: "src",
+      filename: "src-sw.js",
+      // injectManifest: {
+      //   swSrc: './src/pub-sw.js',
+      //   swDest: 'sw.js',
+      // },
+      // injectManifest:{
+      //   swSrc:"src",
+      //   swDest: "src-sw.js"
+      // },
+      injectRegister: "script",
+      devOptions: {
+        enabled: true,
+        type: "module"
+      },
+    })
+  ],
   build: {
     rollupOptions: {
       output: {
+        sourcemap: true,
         minifyInternalExports: true,
         manualChunks: {
           react: ["react", "react-dom", "react-router-dom"],
