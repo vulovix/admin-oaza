@@ -28,22 +28,12 @@ export default defineConfig({
       },
       // selfDestroying: true,
       strategies: 'injectManifest',
-      // srcDir:"public",
-      // filename: 'pub-sw.js',
       registerType: "autoUpdate",
       srcDir: "src",
       filename: "src-sw.js",
-      // injectManifest: {
-      //   swSrc: './src/pub-sw.js',
-      //   swDest: 'sw.js',
-      // },
-      // injectManifest:{
-      //   swSrc:"src",
-      //   swDest: "src-sw.js"
-      // },
       injectRegister: "script",
       devOptions: {
-        enabled: true,
+        enabled: false,
         type: "module"
       },
     })
