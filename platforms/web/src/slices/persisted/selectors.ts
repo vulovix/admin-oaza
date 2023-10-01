@@ -11,12 +11,6 @@ export const selectDeviceId = createSelector([selectState], (state: PersistedSta
   return state.device.id;
 });
 
-export const selectConversations = createSelector([selectState], (state: PersistedState) => {
-  return Object.values(state.conversations)
-    .filter((x) => x)
-    .reverse();
-});
-
 export const selectExperimentalInvert = createSelector([selectState], (state: PersistedState) => {
   return state.experimental.invert;
 });
