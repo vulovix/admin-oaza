@@ -19,14 +19,12 @@ import LogoutPage from "./pages/Account/Logout";
 import AuthProvider from "./providers/Auth";
 import PublicRoute from "./components/Routes/PublicRoute";
 import ProtectedRoute from "./components/Routes/ProtectedRoute";
-import OasisPage from "./pages/Oasis";
 import PublishPage from "./pages/Publish";
 import PublishArticle from "./pages/Publish/PublishArticle";
 import PublishCategory from "./pages/Publish/PublishCategory";
 import Articles from "./pages/Home/Articles";
 import CategorizedArticles from "./pages/Home/CategorizedArticles";
 import Article from "./pages/Home/Article";
-import AIPage from "./pages/AI";
 
 const container = document.getElementById("root");
 
@@ -53,27 +51,7 @@ const router = createBrowserRouter([
         path: "categories/:categoryId",
         element: <CategorizedArticles />,
       },
-    ]
-  },
-  {
-    path: "/oasis",
-    element: (
-      <ProtectedRoute>
-        <DefaultLayout>
-          <OasisPage />
-        </DefaultLayout>
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/ai",
-    element: (
-      <ProtectedRoute>
-        <DefaultLayout>
-          <AIPage />
-        </DefaultLayout>
-      </ProtectedRoute>
-    ),
+    ],
   },
   {
     path: "/sign-in",
@@ -131,7 +109,7 @@ const router = createBrowserRouter([
         path: "category/:id",
         element: <PublishCategory />,
       },
-    ]
+    ],
   },
   // {
   //   path: "/categories",

@@ -20,23 +20,23 @@ export default defineConfig({
         theme_color: "#000000",
         start_url: "/",
         icons: [
-          { "src": "/favicon192x192.png", "type": "image/png", "sizes": "192x192" },
-          { "src": "/favicon192x192.png", "type": "image/png", "sizes": "192x192", "purpose": "maskable" },
-          { "src": "/favicon512x512.png", "type": "image/png", "sizes": "512x512" },
-          { "src": "/favicon512x512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
-        ]
+          { src: "/favicon192x192.png", type: "image/png", sizes: "192x192" },
+          { src: "/favicon192x192.png", type: "image/png", sizes: "192x192", purpose: "maskable" },
+          { src: "/favicon512x512.png", type: "image/png", sizes: "512x512" },
+          { src: "/favicon512x512.png", type: "image/png", sizes: "512x512", purpose: "maskable" },
+        ],
       },
       // selfDestroying: true,
-      strategies: 'injectManifest',
+      strategies: "injectManifest",
       registerType: "autoUpdate",
       srcDir: "src",
       filename: "src-sw.js",
       injectRegister: "script",
       devOptions: {
         enabled: false,
-        type: "module"
+        type: "module",
       },
-    })
+    }),
   ],
   build: {
     rollupOptions: {
@@ -55,7 +55,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:5001",
+        target: "http://127.0.0.1:5001",
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, ""),
       },
