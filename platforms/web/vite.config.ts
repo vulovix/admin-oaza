@@ -26,7 +26,7 @@ export default defineConfig({
           { src: "/favicon512x512.png", type: "image/png", sizes: "512x512", purpose: "maskable" },
         ],
       },
-      // selfDestroying: true,
+      selfDestroying: true,
       strategies: "injectManifest",
       registerType: "autoUpdate",
       srcDir: "src",

@@ -25,6 +25,7 @@ import PublishCategory from "./pages/Publish/PublishCategory";
 import Articles from "./pages/Home/Articles";
 import CategorizedArticles from "./pages/Home/CategorizedArticles";
 import Article from "./pages/Home/Article";
+import Index from "./pages/Index";
 
 const container = document.getElementById("root");
 
@@ -33,26 +34,30 @@ const root = createRoot(container!);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <DefaultLayout>
-        <HomePage />
-      </DefaultLayout>
-    ),
-    children: [
-      {
-        path: "",
-        element: <Articles />,
-      },
-      {
-        path: "articles/:articleId",
-        element: <Article />,
-      },
-      {
-        path: "categories/:categoryId",
-        element: <CategorizedArticles />,
-      },
-    ],
+    element: <Index />,
   },
+  // {
+  //   path: "/",
+  //   element: (
+  //     <DefaultLayout>
+  //       <HomePage />
+  //     </DefaultLayout>
+  //   ),
+  //   children: [
+  //     {
+  //       path: "",
+  //       element: <Articles />,
+  //     },
+  //     {
+  //       path: "articles/:articleId",
+  //       element: <Article />,
+  //     },
+  //     {
+  //       path: "categories/:categoryId",
+  //       element: <CategorizedArticles />,
+  //     },
+  //   ],
+  // },
   {
     path: "/sign-in",
     element: (
@@ -83,14 +88,14 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-  {
-    path: "about",
-    element: (
-      <DefaultLayout>
-        <AboutPage />
-      </DefaultLayout>
-    ),
-  },
+  // {
+  //   path: "about",
+  //   element: (
+  //     <DefaultLayout>
+  //       <AboutPage />
+  //     </DefaultLayout>
+  //   ),
+  // },
   {
     path: "/publish",
     element: (
