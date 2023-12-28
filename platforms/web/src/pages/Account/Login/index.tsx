@@ -42,12 +42,13 @@ export function LoginPage(): JSX.Element {
         <Input id="login-password" label={t("password")} name="password" type={"password"} onChange={onChange} />
       </div>
       <div className="auth-form-footer">
-        <div>
+        <div />
+        {/* <div>
           {t("noAccount")}{" "}
           <Link tabIndex={-1} to="/sign-up">
             {t("signUp")}
           </Link>
-        </div>
+        </div> */}
         <Button onClick={onSubmit}>{t("signIn")}</Button>
       </div>
     </div>

@@ -68,16 +68,16 @@ const router = createBrowserRouter([
       </PublicRoute>
     ),
   },
-  {
-    path: "/sign-up",
-    element: (
-      <PublicRoute>
-        <BlankLayout>
-          <RegisterPage />
-        </BlankLayout>
-      </PublicRoute>
-    ),
-  },
+  // {
+  //   path: "/sign-up",
+  //   element: (
+  //     <PublicRoute>
+  //       <BlankLayout>
+  //         <RegisterPage />
+  //       </BlankLayout>
+  //     </PublicRoute>
+  //   ),
+  // },
   {
     path: "/sign-out",
     element: (
